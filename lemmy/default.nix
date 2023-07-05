@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ./base.nix
     ./users.nix
-    ./packages.nix
+    ./lemmy.nix
+    ./networking.nix
   ];
 }
