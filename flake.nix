@@ -18,8 +18,9 @@
         modules = [
           home-manager.nixosModules.home-manager
           ./lemmy
-          ./mastodon.nix
-          ./packages.nix
+          ./mastodon
+          ./system
+          ./users
           ./hm
         ];
       };
