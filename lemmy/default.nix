@@ -1,6 +1,6 @@
 {...}: let
   fqdn = "lemmy.igl.ooo";
-  email = "daniel.n.baker@gmail.com";
+  secrets = import ../secrets/services.nix;
 in {
   services.lemmy = {
     enable = true;
@@ -12,20 +12,19 @@ in {
 
     settings.hostname = fqdn;
     settings.setup = {
-      admin_username = "djacu";
+      inherit (secrets.lemmy.settings.setup) admin_username admin_email;
       site_name = fqdn;
-      admin_email = email;
     };
 
     secretFile = /etc/lemmy-config.hjson;
   };
 
-  environment.etc."lemmy-config.hjson".text = builtins.readFile ./secretFile;
+  environment.etc."lemmy-config.hjson".text = builtins.toJSON secrets.lemmy.lemmy-config-hjson;
 
   # setup https
   security.acme = {
     acceptTerms = true;
-    defaults.email = email;
+    defaults.email = secrets.admin.email;
     certs = {
       ${fqdn} = {
         webroot = "/var/lib/acme/acme-challenge/";
