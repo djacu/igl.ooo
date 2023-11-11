@@ -16,7 +16,7 @@ in {
       site_name = fqdn;
     };
 
-    secretFile = /etc/lemmy-config.hjson;
+    adminPasswordFile = /etc/lemmy-config.hjson;
   };
 
   environment.etc."lemmy-config.hjson".text = builtins.toJSON secrets.lemmy.lemmy-config-hjson;
@@ -41,11 +41,6 @@ in {
       enableACME = true;
       forceSSL = true;
     };
-  };
-
-  # https://github.com/LemmyNet/lemmy/issues/3118
-  systemd.services.lemmy.environment = {
-    LEMMY_CORS_ORIGIN = "http://" + fqdn;
   };
 
   # THIS KILLS THE DATABASE
