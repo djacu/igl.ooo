@@ -7,6 +7,7 @@
       ./git.nix
       ./neovim
       ./packages.nix
+      ./services.nix
     ];
   };
 }
