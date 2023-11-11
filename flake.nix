@@ -13,13 +13,14 @@
     ...
   }: {
     nixosConfigurations = {
-      lemmy = nixpkgs.lib.nixosSystem {
+      iglooo = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           home-manager.nixosModules.home-manager
           ./lemmy
-          ./mastodon.nix
-          ./packages.nix
+          ./mastodon
+          ./system
+          ./users
           ./hm
         ];
       };
