@@ -22,7 +22,7 @@
   };
 
   # Define your hostname.
-  networking.hostName = "lemmy";
+  networking.hostName = "iglooo";
 
   # Disable predictable interface names
   networking.usePredictableInterfaceNames = false;
