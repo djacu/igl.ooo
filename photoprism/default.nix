@@ -28,6 +28,7 @@ in {
       PHOTOPRISM_DATABASE_USER = "photoprism";
       PHOTOPRISM_SITE_URL = "https://${fqdn}:${builtins.toString cfg.port}/";
       PHOTOPRISM_SITE_TITLE = "My PhotoPrism";
+      PHOTOPRISM_UPLOAD_NSFW = "true";
     };
   };
 
