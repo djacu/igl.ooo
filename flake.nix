@@ -19,6 +19,7 @@
           home-manager.nixosModules.home-manager
           ./lemmy
           ./mastodon
+          ./photoprism
           ./system
           ./users
           ./hm
